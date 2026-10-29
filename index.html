@@ -1,5 +1,8 @@
-
-Fourfold privacy policy · HTML
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>FourFold Privacy Policy</title>
 <style>
   :root {
@@ -284,18 +287,20 @@ Fourfold privacy policy · HTML
  
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
- 
+</head>
+<body>
+
 <div class="shell">
   <header class="mast">
     <div class="mark" aria-hidden="true">
       <span class="d1"></span><span class="d2"></span><span class="d3"></span><span class="d4"></span>
     </div>
     <div class="mast-text">
-      <p class="eyebrow">FourFold: Brain Dump Journal</p>
+      <p class="eyebrow">FourFold</p>
       <h1>Privacy Policy</h1>
       <div class="dates">
         <span class="chip meta">Effective 8 September 2026</span>
-        <span class="chip meta">Last updated 8 September 2026</span>
+        <span class="chip meta">Last updated 29 October 2026</span>
       </div>
     </div>
   </header>
@@ -308,6 +313,7 @@ Fourfold privacy policy · HTML
         <li><a href="#storage">Where your entries live</a></li>
         <li><a href="#calendar">Calendar access</a></li>
         <li><a href="#photos">Diary photos</a></li>
+        <li><a href="#reminders">Reminders</a></li>
         <li><a href="#lock">App lock</a></li>
         <li><a href="#purchase">Purchases</a></li>
         <li><a href="#sharing">Sharing &amp; third parties</a></li>
@@ -336,68 +342,83 @@ Fourfold privacy policy · HTML
  
       <section class="clause" id="storage">
         <h2><span class="num">02</span>Where your entries live</h2>
-        <p>Every To-Do, Decision, Idea, Let Go entry, mood check-in and diary note is stored locally on your device using Apple's SwiftData framework, and synced through your personal iCloud account via CloudKit's <strong>private database</strong>.</p>
+        <p>Every To-Do, Decision, Idea and Let Go entry, along with its checklist subtasks and tags, plus your mood check-ins, diary text and diary photos, is stored locally on your device using Apple's SwiftData framework, and synced through your personal iCloud account via CloudKit's <strong>private database</strong>. When you move an entry to another day or section, the change is saved and synced the same way.</p>
+        <p>A few app settings, such as your light or dark mode choice and which calendars you've chosen to show, are kept only on your device.</p>
         <div class="callout"><strong>What that means in practice:</strong> your data moves between your own devices signed into the same iCloud account, encrypted in transit and at rest by Apple's infrastructure. FourFold has no server of its own, and the developer cannot see, access, or recover your entries — there is no dashboard, database, or backend that any FourFold employee could query.</div>
         <p>If you're signed out of iCloud, or have iCloud Drive disabled for the app, your entries stay on-device only and simply don't sync across devices.</p>
       </section>
  
       <section class="clause" id="calendar">
         <h2><span class="num">03</span>Calendar access</h2>
-        <p>If you turn on "Add to Calendar" for a To-Do or Decision, or "Schedule First Step" for an Idea, FourFold asks for permission to create an event in your device's Calendar app via Apple's EventKit framework. This happens entirely on-device — the event is written straight to your calendar database, and FourFold never transmits it anywhere else.</p>
-        <p>You can revoke calendar access at any time in Settings → Privacy &amp; Security → Calendars on your device; existing calendar events aren't deleted automatically if you do.</p>
+        <p>FourFold can show your calendar alongside your entries. To do this it asks for <strong>full access</strong> to the calendars on your device, using Apple's EventKit framework. Calendar access is optional: if you decline, the rest of the app works as normal, but your calendar events won't be displayed.</p>
+        <p>With access granted, FourFold can:</p>
+        <ul>
+          <li><strong>Read events</strong> from the calendars on your device, including iCloud calendars, any accounts you've added in iOS Settings (for example Google or Outlook) and calendars you subscribe to, so they appear on the Calendar tab and the Today page. You can hide any calendar inside the app.</li>
+          <li><strong>Create events</strong> when you schedule a To-Do or Decision, or a first step for an Idea, in a calendar you choose.</li>
+          <li><strong>Change, move or delete events</strong> that you edit in the app, or that are linked to an entry you move to another day or section. Moving an entry to Let Go removes its linked event, and the app warns you first. Read-only and subscribed calendars can't be changed.</li>
+        </ul>
+        <div class="callout"><strong>What stays where:</strong> calendar events are read directly from your device each time they're shown. FourFold does not copy them into its own storage and never sends them to the developer or anyone else. For events you schedule from an entry, FourFold keeps only a link to that event (its identifier, calendar and time) with the entry in your private iCloud database. If your calendars sync with an account provider such as iCloud or Google, that provider syncs the events as it normally would, under its own privacy policy.</div>
+        <p>You can turn off calendar access at any time in Settings → Privacy &amp; Security → Calendars on your device. Existing calendar events aren't deleted if you do.</p>
       </section>
  
       <section class="clause" id="photos">
         <h2><span class="num">04</span>Diary photos</h2>
-        <p>Photos you attach to a day's diary entry are stored the same way as your text entries: locally, then synced through your private CloudKit database. FourFold only accesses the specific photo you choose to attach, via the system photo picker — it does not have blanket access to your photo library.</p>
+        <p>Photos you add to your diary, including pictures placed inside the diary text, are stored the same way as your text entries: locally, then synced through your private CloudKit database. To save space, FourFold stores a resized copy (up to 1600 pixels on the longest side), not the original file. FourFold only accesses the specific photo you choose, via the system photo picker — it does not have blanket access to your photo library.</p>
+      </section>
+
+      <section class="clause" id="reminders">
+        <h2><span class="num">05</span>Reminders</h2>
+        <p>If you turn on daily or weekly reminders in Settings, FourFold asks for permission to send notifications. Reminders are scheduled on your device by iOS. Nothing is sent to a server to deliver them. You can turn them off in the app, or in your device's notification settings.</p>
       </section>
  
       <section class="clause" id="lock">
-        <h2><span class="num">05</span>App lock (Face ID / passcode)</h2>
+        <h2><span class="num">06</span>App lock (Face ID / passcode)</h2>
         <p>If you enable the passcode lock in Settings, FourFold uses Apple's LocalAuthentication framework to confirm it's you — your device's passcode, Face ID, or Touch ID — before showing your entries. This check happens entirely on-device; no biometric data or passcode is ever seen, stored, or transmitted by FourFold.</p>
       </section>
  
       <section class="clause" id="purchase">
-        <h2><span class="num">06</span>Purchases</h2>
+        <h2><span class="num">07</span>Purchases</h2>
         <p>FourFold's one-time unlock is processed entirely by Apple through StoreKit. FourFold never sees your payment details, card number, or Apple ID — Apple handles the transaction and simply confirms back to the app that you've purchased. Refunds and billing questions go through Apple, not FourFold directly.</p>
+        <p>So that your free trial and unlock carry across your devices, the app stores your trial start date and whether you've unlocked Full Access in your private iCloud database, alongside your entries.</p>
       </section>
  
       <section class="clause" id="sharing">
-        <h2><span class="num">07</span>Sharing &amp; third parties</h2>
+        <h2><span class="num">08</span>Sharing &amp; third parties</h2>
         <p>FourFold does not sell, rent, or share your entries with any third party, for any purpose. There is no advertising SDK, analytics SDK, or crash-reporting service built into the app that would transmit your data off your device.</p>
         <p>The only outside party involved at all is Apple, acting as your iCloud and App Store provider — governed by Apple's own privacy policy for those services.</p>
       </section>
  
       <section class="clause" id="retention">
-        <h2><span class="num">08</span>Keeping or deleting your data</h2>
+        <h2><span class="num">09</span>Keeping or deleting your data</h2>
         <ul>
           <li>Deleting an entry, day, or photo in the app removes it from your device and, once synced, from your iCloud private database.</li>
           <li>Deleting the FourFold app removes all local data; anything already synced remains in your iCloud account until you clear it via Settings → [your name] → iCloud → Manage Account Storage on your device, or it's overwritten by a future sync.</li>
-          <li>The in-app Backup &amp; Restore export creates a file that lives wherever you choose to save it (Files, iCloud Drive, etc.) — FourFold has no copy of it once it's saved.</li>
+          <li>The in-app Backup &amp; Restore export creates a file containing your entries, subtasks, tags, mood check-ins, diary text and diary photos. It lives wherever you choose to save it (Files, iCloud Drive, etc.), and FourFold has no copy of it once it's saved. Calendar events aren't included. Keep the file somewhere private, as anyone who has it can read its contents.</li>
+          <li>Restoring a backup replaces all the data currently in the app with the contents of the file.</li>
         </ul>
       </section>
  
       <section class="clause" id="children">
-        <h2><span class="num">09</span>Children</h2>
+        <h2><span class="num">10</span>Children</h2>
         <p>FourFold is not directed at children and is not intended for use by anyone under 13. The app collects no personal information from anyone, of any age, since nothing is transmitted to the developer in the first place.</p>
       </section>
  
       <section class="clause" id="changes">
-        <h2><span class="num">10</span>Changes to this policy</h2>
+        <h2><span class="num">11</span>Changes to this policy</h2>
         <p>If this policy changes, the "Last updated" date at the top of this page will change with it. Material changes — anything that alters what data the app touches — will also be noted in the App Store release notes for that update.</p>
       </section>
  
       <section class="clause" id="contact">
-        <h2><span class="num">11</span>Contact</h2>
+        <h2><span class="num">12</span>Contact</h2>
         <p>Questions about this policy or how FourFold handles your data can be sent to:</p>
         <div class="fact-grid">
           <div class="fact"><p class="k">Developer</p><p class="v">Daphne Tan</p></div>
-          <div class="fact"><p class="k">Email</p><p class="v"><a href="mailto:daphnetanlm@gmail.com">daphnetanlm@gmail.com</a></p></div>
+          <div class="fact"><p class="k">Email</p><p class="v"><a href="mailto:fourfold.app@gmail.com">fourfold.app@gmail.com</a></p></div>
         </div>
       </section>
  
       <footer class="foot">
-        <span>FourFold: Brain Dump Journal</span>
+        <span>FourFold</span>
         <span>© 2026 Daphne Tan</span>
       </footer>
     </main>
@@ -420,3 +441,5 @@ Fourfold privacy policy · HTML
     setActive();
   } catch (e) {}
 </script>
+</body>
+</html>
